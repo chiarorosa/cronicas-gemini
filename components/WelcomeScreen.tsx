@@ -35,22 +35,22 @@ const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onStartGame, isLoading })
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-4 bg-black">
-      <div className="bg-neutral-900 p-8 rounded-xl shadow-2xl w-full max-w-md text-center">
+    <div className="min-h-screen flex flex-col items-center justify-center p-4 bg-gradient-to-br from-black via-red-950 to-black">
+      <div className="bg-neutral-950/80 backdrop-blur-sm border border-red-900/50 p-6 sm:p-8 rounded-xl shadow-2xl w-full max-w-md text-center">
         {/* 
           INSTRUÇÃO PARA O LOGO:
-          Para usar o logo do jogo 'cronicas-gemini-LOGO.svg':
+          Para usar o logo do jogo 'cronicas-gemini-LOGO.png':
           1. Certifique-se de que existe uma pasta chamada 'assets' no diretório raiz do seu projeto.
-          2. Coloque o arquivo de imagem do logo (ex: 'cronicas-gemini-LOGO.svg') 
+          2. Coloque o arquivo de imagem do logo (ex: 'cronicas-gemini-LOGO.png') 
              dentro desta pasta 'assets'.
           3. Certifique-se de que o nome e a extensão no atributo 'src' abaixo 
              correspondam exatamente ao seu arquivo.
-          Exemplo: src="assets/cronicas-gemini-LOGO.svg" 
+          Exemplo: src="assets/cronicas-gemini-LOGO.png" 
         */}
         <img
-            src="assets/cronicas-gemini-LOGO.svg" // Caminho para o logo SVG no diretório 'assets'
+            src="assets/cronicas-gemini-LOGO.png" // Caminho para o logo PNG no diretório 'assets'
             alt="Logo Crônicas de Gemini" 
-            className="mx-auto mb-10 shadow-lg w-36 h-36 object-contain" // Margem inferior ajustada
+            className="mx-auto mb-8 sm:mb-10 shadow-lg w-28 h-28 sm:w-36 sm:h-36 object-contain"
         />
         {/* Títulos de texto removidos conforme solicitado */}
         {/* <h1 className="text-4xl font-bold font-serif text-purple-400 mb-1">{GAME_TITLE}</h1> */}
@@ -62,7 +62,7 @@ const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onStartGame, isLoading })
         
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label htmlFor="playerName" className="block text-sm font-medium text-neutral-300 mb-1 text-left">
+            <label htmlFor="playerName" className="block text-sm font-medium text-red-400 mb-1 text-left">
               NOME DO(A) AVENTUREIRO(A):
             </label>
             <input
@@ -70,7 +70,7 @@ const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onStartGame, isLoading })
               id="playerName"
               value={playerName}
               onChange={(e) => setPlayerName(e.target.value)}
-              className="w-full px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg text-neutral-300 placeholder-neutral-500 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition-all"
+              className="w-full px-4 py-3 bg-black/60 border border-neutral-700 rounded-lg text-neutral-300 placeholder-neutral-600 focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all"
               placeholder="Ex: Tharivol Sombravento, Flagelo dos Lichs"
               required
               disabled={isLoading}
@@ -79,14 +79,14 @@ const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onStartGame, isLoading })
           </div>
           
           <div>
-            <label htmlFor="theme" className="block text-sm font-medium text-neutral-300 mb-1 text-left">
+            <label htmlFor="theme" className="block text-sm font-medium text-red-400 mb-1 text-left">
               ESCOLHA SEU DESTINO MALDITO
             </label>
             <select
               id="theme"
               value={selectedTheme}
               onChange={(e) => setSelectedTheme(e.target.value)}
-              className="w-full px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg text-neutral-300 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition-all appearance-none"
+              className="w-full px-4 py-3 bg-black/60 border border-neutral-700 rounded-lg text-neutral-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all appearance-none"
               style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%23a3a3a3' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E")`, backgroundPosition: 'right 0.75rem center', backgroundRepeat: 'no-repeat', backgroundSize: '1.25em 1.25em' }}
               disabled={isLoading}
               aria-label="Escolha seu destino maldito"
@@ -100,14 +100,14 @@ const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onStartGame, isLoading })
           <button
             type="submit"
             disabled={isLoading || !playerName.trim() || !selectedTheme.trim()}
-            className="w-full py-3 px-6 bg-red-800 text-amber-300 font-semibold rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-neutral-900 transition-all duration-150 ease-in-out disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center"
+            className="w-full py-3 px-6 bg-red-900 text-amber-400 font-semibold rounded-lg hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-red-700 focus:ring-offset-2 focus:ring-offset-neutral-950 transition-all duration-150 ease-in-out disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center"
           >
             <SkullIcon className="w-5 h-5 mr-2" />
             {isLoading ? 'Forjando seu Destino...' : 'INVOCAR O DESTINO'}
           </button>
         </form>
       </div>
-       <footer className="mt-8 text-sm text-neutral-500">
+       <footer className="mt-8 text-sm text-neutral-600">
         Forjado nas sombras com Gemini & Imagen
       </footer>
     </div>
