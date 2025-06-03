@@ -1,5 +1,6 @@
 {
   "name": "Crônicas de Gemini - Aventura Interativa",
   "description": "Um jogo de aventura baseado em texto onde suas escolhas moldam a história, com tecnologia Gemini para narrativa e Imagen para visuais.",
-  "requestFramePermissions": []
+  "requestFramePermissions": [],
+  "prompt": ""
 }

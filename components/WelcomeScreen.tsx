@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { GAME_TITLE, DEFAULT_THEME } from '../constants';
 
@@ -38,21 +37,32 @@ const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onStartGame, isLoading })
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-4 bg-black">
       <div className="bg-neutral-900 p-8 rounded-xl shadow-2xl w-full max-w-md text-center">
-        {/* User should replace this placeholder with their actual game logo image if available */}
-        <img 
-            src="https://picsum.photos/seed/darkskullfantasy/128/128" 
-            alt="Ícone do Jogo" 
-            className="mx-auto mb-6 rounded-full shadow-lg w-24 h-24 object-cover border-2 border-purple-600" 
+        {/* 
+          INSTRUÇÃO PARA O LOGO:
+          Para usar o logo do jogo 'cronicas-gemini-LOGO.svg':
+          1. Certifique-se de que existe uma pasta chamada 'assets' no diretório raiz do seu projeto.
+          2. Coloque o arquivo de imagem do logo (ex: 'cronicas-gemini-LOGO.svg') 
+             dentro desta pasta 'assets'.
+          3. Certifique-se de que o nome e a extensão no atributo 'src' abaixo 
+             correspondam exatamente ao seu arquivo.
+          Exemplo: src="assets/cronicas-gemini-LOGO.svg" 
+        */}
+        <img
+            src="assets/cronicas-gemini-LOGO.svg" // Caminho para o logo SVG no diretório 'assets'
+            alt="Logo Crônicas de Gemini" 
+            className="mx-auto mb-10 shadow-lg w-36 h-36 object-contain" // Margem inferior ajustada
         />
-        <h1 className="text-4xl font-bold font-serif text-purple-400 mb-1">{GAME_TITLE}</h1>
-        <p className="text-2xl font-serif text-purple-400 mb-6">ECOS DO ABISMO</p>
+        {/* Títulos de texto removidos conforme solicitado */}
+        {/* <h1 className="text-4xl font-bold font-serif text-purple-400 mb-1">{GAME_TITLE}</h1> */}
+        {/* <p className="text-2xl font-serif text-purple-400 mb-6">ECOS DO ABISMO</p> */}
+        
         <p className="text-neutral-400 mb-8 text-sm">
           Explore masmorras esquecidas, enfrente horrores antigos e deixe sua alma ser forjada pelas trevas... Sua jornada começa com uma escolha.
         </p>
         
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label htmlFor="playerName" className="block text-sm font-medium text-purple-300 mb-1 text-left">
+            <label htmlFor="playerName" className="block text-sm font-medium text-neutral-300 mb-1 text-left">
               NOME DO(A) AVENTUREIRO(A):
             </label>
             <input
@@ -64,11 +74,12 @@ const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onStartGame, isLoading })
               placeholder="Ex: Tharivol Sombravento, Flagelo dos Lichs"
               required
               disabled={isLoading}
+              aria-label="Nome do Aventureiro"
             />
           </div>
           
           <div>
-            <label htmlFor="theme" className="block text-sm font-medium text-purple-300 mb-1 text-left">
+            <label htmlFor="theme" className="block text-sm font-medium text-neutral-300 mb-1 text-left">
               ESCOLHA SEU DESTINO MALDITO
             </label>
             <select
@@ -78,6 +89,7 @@ const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onStartGame, isLoading })
               className="w-full px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg text-neutral-300 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition-all appearance-none"
               style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%23a3a3a3' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E")`, backgroundPosition: 'right 0.75rem center', backgroundRepeat: 'no-repeat', backgroundSize: '1.25em 1.25em' }}
               disabled={isLoading}
+              aria-label="Escolha seu destino maldito"
             >
               {themes.map(theme => (
                 <option key={theme} value={theme} className="bg-neutral-800 text-neutral-200 p-2">{theme.charAt(0).toUpperCase() + theme.slice(1)}</option>
