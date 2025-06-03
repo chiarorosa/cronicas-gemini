@@ -1,5 +1,5 @@
 
-export const GAME_TITLE = "Crônicas de Gemini";
+export const GAME_TITLE = "CRÔNICAS DE GEMINI";
 export const DEFAULT_THEME = "Cripta amaldiçoada infestada de demônios";
 
 export const GEMINI_TEXT_MODEL = "gemini-2.5-flash-preview-04-17";
